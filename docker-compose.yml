@@ -1,0 +1,10 @@
+services:
+  [username]_nano-app: # name your app
+    image: [username]_nano-app:latest  # use the image name you created
+    ports:
+      - # provide the port mappings here (use your port number)
+    volumes:
+      - ./app:/app 
+      - ./data/survey_results.csv:/data/survey_results.csv  # Mount the CSV file
+    environment:
+      - FLASK_ENV=development  # enables debug mode in Flask

@@ -11,7 +11,7 @@ def load_csv_data(file_path):
     return data
 
 # Load data at startup from the uploaded file path
-survey_data = load_csv_data('survey_results.csv') # may need to specify the correct path
+survey_data = load_csv_data('nonoservice/survey_results.csv') # may need to specify the correct path
 
 # Route to display all responses
 @app.route('/')
@@ -32,7 +32,6 @@ def status_counts():
     # Count occurrences of each unique value in the "Current status" column
     status_counts = Counter(row['Current status'] for row in survey_data if 'Current status' in row)
     return jsonify(status_counts)
-
 
 # New route to display the number of responses aggregated by gender
 @app.route('/gender/stats')

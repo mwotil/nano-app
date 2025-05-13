@@ -21,6 +21,7 @@ Qn 4 id -u && id -g
 PART C 
 
 Qn 5
+https://joyce-wandeka-nano-app.onrender.com/
 
 Qn (6)
 A private container/image registry important because it helps with Keeping your images secure, Maintaining control over deployments, Enabling compliance and Supporting efficient CI/CD workflows

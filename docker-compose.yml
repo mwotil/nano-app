@@ -1,7 +1,8 @@
 services:
-  [username]_nano-app: # name your app
-    image: [username]_nano-app:latest  # use the image name you created
+  joycew_nano-app: # name your app
+    image: joycew_nano-app:latest  # use the image name you created
     ports:
+      - "5000:5000"
       - # provide the port mappings here (use your port number)
     volumes:
       - ./app:/app 

@@ -33,5 +33,21 @@ def status_counts():
     status_counts = Counter(row['Current status'] for row in survey_data if 'Current status' in row)
     return jsonify(status_counts)
 
+
+# New route to display the number of responses aggregated by gender
+@app.route('/gender/stats')
+def gender_stats():
+    # Count occurrences of each unique value in the "Gender" column
+    gender_counts = Counter(row['Gender'] for row in survey_data if 'Gender' in row)
+    return jsonify(gender_counts)
+
+# New route to display all the questions in the survey (headers of CSV)
+@app.route('/questions')
+def questions():
+    # Get the header row (questions) from the CSV file
+    questions = survey_data[0].keys() if survey_data else []
+    return jsonify(list(questions))
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5555)

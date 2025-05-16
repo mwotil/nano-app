@@ -11,7 +11,12 @@ COPY . /app
 RUN pip install flask
 
 # Make port available to the world outside this container
-EXPOSE XXXXX
+EXPOSE 5000
+
+# Ensure Flask app listens on all interfaces
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+ENV FLASK_ENV = production
 
 # Run app.py when the container launches
-CMD ["python", "app.py"]
+CMD ["flask", "run", "--host=0.0.0.0"]
